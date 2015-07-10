@@ -18,7 +18,10 @@
     "deglob",
     "files",
     "glob",
-    "unglob"
+    "unglob",
+    "gitignore",
+    "ignore",
+    "file"
   ],
   "license": "ISC",
   "main": "index.js",
