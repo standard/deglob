@@ -23,7 +23,7 @@ npm install --save deglob
 ```js
 var deglob = require('deglob')
 
-deglob([**/*.js], function(err, files) {
+deglob(['**/*.js'], function(err, files) {
   files.forEach(function(file) {
     console.log('found file ' + file)
   })
