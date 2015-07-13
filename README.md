@@ -62,7 +62,7 @@ Option         | Default       | Description
 -------------- | --------      | -------
 useGitIgnore   | true          | Turn on/off allowing ignore patterns via `.gitignore`
 usePackageJson | true          | Turn on/off allowing ignore patterns via `package.json` config.
-configKey      | 'config'      | This is the parent key in `package.json to look for the `ignore` attribute.
+configKey      | 'config'      | This is the parent key in `package.json` to look for the `ignore` attribute.
 gitIgnoreFile  | '.gitignore'  | Name of the `.gitignore` file look for (probably best to leave it default)
 cwd            | process.cwd() | This is the working directory to start the deglobbing
 
