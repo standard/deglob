@@ -38,7 +38,7 @@ var opts = {
   usePackageJson: false
 }
 
-deglob(['**/*.js'], opts function(err, files) {
+deglob(['**/*.js'], opts, function(err, files) {
   files.forEach(function(file) {
     console.log('found file ' + file)
   })
