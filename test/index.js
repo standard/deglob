@@ -7,7 +7,6 @@ var playground = path.join(__dirname, 'playground')
 var opts = {cwd: playground, gitIgnoreFile: 'custom-gitignore'}
 
 test('all of the things', function (t) {
-
   globbies.forEach(function (obj) {
     deglob(obj.globs, obj.opts, checkEm)
 
