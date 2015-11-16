@@ -37,7 +37,6 @@
     "find-root": "^0.1.1",
     "glob": "^5.0.13",
     "ignore": "^2.2.15",
-    "path": "^0.11.14",
     "pkg-config": "^1.1.0",
     "run-parallel": "^1.1.2",
     "uniq": "^1.0.1",
