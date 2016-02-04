@@ -33,7 +33,6 @@
     "test": "standard && tape test/*.js | tap-spec"
   },
   "dependencies": {
-    "dezalgo": "^1.0.3",
     "find-root": "^0.1.1",
     "glob": "^5.0.13",
     "ignore": "^2.2.15",

@@ -1,6 +1,5 @@
 module.exports = deglob
 
-var dezalgo = require('dezalgo')
 var extend = require('xtend')
 var findRoot = require('find-root')
 var fs = require('fs')
@@ -20,15 +19,11 @@ var DEFAULT_OPTIONS = {
 }
 
 function deglob (files, opts, cb) {
-  if (typeof opts === 'function') {
-    cb = opts
-    opts = {}
-  }
+  if (typeof opts === 'function') return deglob(files, null, opts)
   opts = parseOpts(opts)
-  cb = dezalgo(cb)
 
   if (typeof files === 'string') files = [ files ]
-  if (files.length === 0) return cb(null, [])
+  if (files.length === 0) return nextTick(cb, null, [])
 
   // traverse filesystem
   parallel(files.map(function (pattern) {
@@ -134,5 +129,11 @@ function toUnix (files) {
 function toWin32 (files) {
   return files.map(function (file) {
     return file.replace(/\//g, '\\')
+  })
+}
+
+function nextTick (cb, err, val) {
+  process.nextTick(function () {
+    cb(err, val)
   })
 }
