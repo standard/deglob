@@ -35,7 +35,7 @@
   "dependencies": {
     "find-root": "^0.1.1",
     "glob": "^6.0.4",
-    "ignore": "^2.2.15",
+    "ignore": "^3.0.9",
     "pkg-config": "^1.1.0",
     "run-parallel": "^1.1.2",
     "uniq": "^1.0.1",
