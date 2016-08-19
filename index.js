@@ -1,6 +1,5 @@
 module.exports = deglob
 
-var extend = require('xtend')
 var findRoot = require('find-root')
 var fs = require('fs')
 var glob = require('glob')
@@ -10,13 +9,6 @@ var parallel = require('run-parallel')
 var path = require('path')
 var pkgConfig = require('pkg-config')
 var uniq = require('uniq')
-
-var DEFAULT_OPTIONS = {
-  useGitIgnore: true,
-  usePackageJson: true,
-  configKey: 'config',
-  gitIgnoreFile: '.gitignore'
-}
 
 function deglob (files, opts, cb) {
   if (typeof opts === 'function') return deglob(files, null, opts)
@@ -62,7 +54,12 @@ function deglob (files, opts, cb) {
 
 function parseOpts (opts) {
   if (!opts) opts = {}
-  opts = extend(DEFAULT_OPTIONS, opts)
+  opts = Object.assign({
+    useGitIgnore: true,
+    usePackageJson: true,
+    configKey: 'config',
+    gitIgnoreFile: '.gitignore'
+  }, opts)
 
   if (!opts.cwd) opts.cwd = process.cwd()
 
