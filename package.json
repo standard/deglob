@@ -1,7 +1,7 @@
 {
   "name": "deglob",
   "description": "Take a list of glob patterns and return an array of file locations, respecting `.gitignore` and allowing for ignore patterns via `package.json`.",
-  "version": "1.1.2",
+  "version": "2.0.0",
   "author": "Dan Flettre <fletd01@yahoo.com>",
   "bugs": {
     "url": "https://github.com/flet/deglob/issues"
