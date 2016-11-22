@@ -24,13 +24,13 @@ test('all of the things', function (t) {
 
 var globbies = [
   {
-    name: '*.txt useGitIgnore: true, usePackageJson: true',
+    name: '*.txt useGitIgnore: default, usePackageJson: default',
     globs: '*.txt',
     opts: Object.assign({}, opts),
     expectedFiles: ['blah.txt']
   },
   {
-    name: '*.txt useGitIgnore: false, usePackageJson: true',
+    name: '*.txt useGitIgnore: false, usePackageJson: default',
     globs: '*.txt',
     opts: Object.assign({}, opts, {useGitIgnore: false}),
     expectedFiles: [
@@ -47,13 +47,16 @@ var globbies = [
       'blah.txt']
   },
   {
-    name: '*.txt and *.json useGitIgnore: true, usePackageJson: false',
+    name: '*.txt and *.json useGitIgnore: default, usePackageJson: false',
     globs: ['*.txt', '*.json'],
-    opts: Object.assign({}, opts),
-    expectedFiles: ['blah.txt', 'package.json']
+    opts: Object.assign({}, opts, {usePackageJson: false}),
+    expectedFiles: [
+      'ignored-by-package-json.txt',
+      'blah.txt',
+      'package.json']
   },
   {
-    name: '*.txt and *.json useGitIgnore: true, usePackageJson: true, configKey: custom-ignore-blah',
+    name: '*.txt and *.json useGitIgnore: default, usePackageJson: default, configKey: custom-ignore-blah',
     globs: ['*.txt'],
     opts: Object.assign({}, opts, {configKey: 'custom-ignore-blah'}),
     expectedFiles: ['ignored-by-package-json.txt']

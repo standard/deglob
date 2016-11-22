@@ -85,11 +85,12 @@ function parseOpts (opts) {
   } catch (e) {}
 
   if (root) {
-    var packageOpts = pkgConfig(opts.configKey, { root: false, cwd: opts.cwd })
-
-    if (packageOpts && packageOpts.ignore) {
-      // Use ignore patterns from package.json ("config.ignore" property)
-      addIgnorePattern(packageOpts.ignore)
+    if (opts.usePackageJson) {
+      var packageOpts = pkgConfig(opts.configKey, { root: false, cwd: opts.cwd })
+      if (packageOpts && packageOpts.ignore) {
+        // Use ignore patterns from package.json ("config.ignore" property)
+        addIgnorePattern(packageOpts.ignore)
+      }
     }
 
     if (opts.useGitIgnore) {
