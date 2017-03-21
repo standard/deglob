@@ -1,7 +1,7 @@
 # deglob [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![javascript style guide][standard-image]][standard-url]
 
-[travis-image]: https://img.shields.io/travis/feross/deglob/master.svg
-[travis-url]: https://travis-ci.org/feross/deglob
+[travis-image]: https://img.shields.io/travis/Flet/deglob/master.svg
+[travis-url]: https://travis-ci.org/Flet/deglob
 [npm-image]: https://img.shields.io/npm/v/deglob.svg
 [npm-url]: https://npmjs.org/package/deglob
 [downloads-image]: https://img.shields.io/npm/dm/deglob.svg
@@ -11,7 +11,7 @@
 
 Take a list of glob patterns and return an array of file locations, respecting `.gitignore` and allowing for ignore patterns via `package.json`.
 
-Giant swaths of this code were extracted from [standard](https://github.com/feross/standard). It seems useful outside of that tool, so I've attempted to extract it! :)
+Giant swaths of this code were extracted from [standard](https://standardjs.com). It seems useful outside of that tool, so I've attempted to extract it! :)
 
 ## Install
 
