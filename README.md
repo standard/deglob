@@ -1,12 +1,13 @@
-# deglob
+# deglob [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![javascript style guide][standard-image]][standard-url]
 
-[![npm][npm-image]][npm-url]
-[![travis][travis-image]][travis-url]
-
-[npm-image]: https://img.shields.io/npm/v/deglob.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/deglob
-[travis-image]: https://img.shields.io/travis/flet/deglob.svg?style=flat-square
-[travis-url]: https://travis-ci.org/flet/deglob
+[travis-image]: https://img.shields.io/travis/feross/deglob/master.svg
+[travis-url]: https://travis-ci.org/feross/deglob
+[npm-image]: https://img.shields.io/npm/v/deglob.svg
+[npm-url]: https://npmjs.org/package/deglob
+[downloads-image]: https://img.shields.io/npm/dm/deglob.svg
+[downloads-url]: https://npmjs.org/package/deglob
+[standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[standard-url]: https://standardjs.com
 
 Take a list of glob patterns and return an array of file locations, respecting `.gitignore` and allowing for ignore patterns via `package.json`.
 
