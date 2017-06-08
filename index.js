@@ -78,15 +78,15 @@ function parseOpts (opts) {
     return opts
   }
 
-  // Find package.json in the project root
+  // determine root
   var root
   try {
-    root = findRoot(opts.cwd)
+    root = opts.root || findRoot(opts.cwd)
   } catch (e) {}
 
   if (root) {
     if (opts.usePackageJson) {
-      var packageOpts = pkgConfig(opts.configKey, { root: false, cwd: opts.cwd })
+      var packageOpts = pkgConfig(opts.configKey, { root: false, cwd: opts.root || opts.cwd })
       if (packageOpts && packageOpts.ignore) {
         // Use ignore patterns from package.json ("config.ignore" property)
         addIgnorePattern(packageOpts.ignore)
