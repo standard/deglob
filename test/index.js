@@ -60,5 +60,21 @@ var globbies = [
     globs: ['*.txt'],
     opts: Object.assign({}, opts, {configKey: 'custom-ignore-blah'}),
     expectedFiles: ['ignored-by-package-json.txt']
+  },
+  {
+    name: '*.txt useGitIgnore: default, usePackageJson: default, root: ./playground',
+    globs: '*.txt',
+    opts: Object.assign({}, opts, {root: playground}),
+    expectedFiles: ['blah.txt']
+  },
+  {
+    name: '*.txt and *.json useGitIgnore: default, usePackageJson: default, root: <non-existant>',
+    globs: ['*.txt', '*.json'],
+    opts: Object.assign({}, opts, {root: '_'}),
+    expectedFiles: [
+      'ignored-by-git.txt',
+      'ignored-by-package-json.txt',
+      'blah.txt',
+      'package.json']
   }
 ]
