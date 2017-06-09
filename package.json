@@ -30,13 +30,12 @@
     "url": "https://github.com/flet/deglob.git"
   },
   "scripts": {
-    "test": "standard && tape test/*.js | tap-spec"
+    "test": "tape test/*.js | tap-spec"
   },
   "dependencies": {
     "find-root": "^1.0.0",
     "glob": "^7.0.5",
     "ignore": "^3.0.9",
-    "pkg-config": "^1.1.0",
     "run-parallel": "^1.1.2",
     "uniq": "^1.0.1"
   }
