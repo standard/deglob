@@ -67,6 +67,7 @@ configKey      | 'config'      | This is the parent key in `package.json` to loo
 gitIgnoreFile  | '.gitignore'  | Name of the `.gitignore` file look for (probably best to leave it default)
 ignore         | []            | List of additional ignore patterns to use
 cwd            | process.cwd() | This is the working directory to start the deglobbing
+root           | `package.json` directory | The top-level directory which would normally contain `.gitIgnore` and/or `package.json`
 
 ## Contributing
 
