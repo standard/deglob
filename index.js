@@ -7,7 +7,6 @@ var ignorePkg = require('ignore')
 var os = require('os')
 var parallel = require('run-parallel')
 var path = require('path')
-var pkgConfig = require('pkg-config')
 var uniq = require('uniq')
 
 function deglob (files, opts, cb) {
@@ -86,7 +85,11 @@ function parseOpts (opts) {
 
   if (root) {
     if (opts.usePackageJson) {
-      var packageOpts = pkgConfig(opts.configKey, { root: false, cwd: opts.root || opts.cwd })
+      var packageOpts
+      try {
+        // load package options from package.json
+        packageOpts = require(path.join(opts.root || root, 'package.json'))[opts.configKey]
+      } catch (e) {}
       if (packageOpts && packageOpts.ignore) {
         // Use ignore patterns from package.json ("config.ignore" property)
         addIgnorePattern(packageOpts.ignore)
