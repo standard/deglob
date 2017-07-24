@@ -1,7 +1,7 @@
 # deglob [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![javascript style guide][standard-image]][standard-url]
 
-[travis-image]: https://img.shields.io/travis/Flet/deglob/master.svg
-[travis-url]: https://travis-ci.org/Flet/deglob
+[travis-image]: https://img.shields.io/travis/standard/deglob/master.svg
+[travis-url]: https://travis-ci.org/standard/deglob
 [npm-image]: https://img.shields.io/npm/v/deglob.svg
 [npm-url]: https://npmjs.org/package/deglob
 [downloads-image]: https://img.shields.io/npm/dm/deglob.svg
