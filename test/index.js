@@ -3,7 +3,7 @@ var test = require('tape')
 var deglob = require('../')
 
 var playground = path.join(__dirname, 'playground')
-var opts = {cwd: playground, gitIgnoreFile: 'custom-gitignore'}
+var opts = { cwd: playground, gitIgnoreFile: 'custom-gitignore' }
 
 test('all of the things', function (t) {
   globbies.forEach(function (obj) {
@@ -32,7 +32,7 @@ var globbies = [
   {
     name: '*.txt useGitIgnore: false, usePackageJson: default',
     globs: '*.txt',
-    opts: Object.assign({}, opts, {useGitIgnore: false}),
+    opts: Object.assign({}, opts, { useGitIgnore: false }),
     expectedFiles: [
       'ignored-by-git.txt',
       'blah.txt']
@@ -40,7 +40,7 @@ var globbies = [
   {
     name: '*.txt useGitIgnore: false, usePackageJson: false',
     globs: '*.txt',
-    opts: Object.assign({}, opts, {useGitIgnore: false, usePackageJson: false}),
+    opts: Object.assign({}, opts, { useGitIgnore: false, usePackageJson: false }),
     expectedFiles: [
       'ignored-by-git.txt',
       'ignored-by-package-json.txt',
@@ -49,7 +49,7 @@ var globbies = [
   {
     name: '*.txt and *.json useGitIgnore: default, usePackageJson: false',
     globs: ['*.txt', '*.json'],
-    opts: Object.assign({}, opts, {usePackageJson: false}),
+    opts: Object.assign({}, opts, { usePackageJson: false }),
     expectedFiles: [
       'ignored-by-package-json.txt',
       'blah.txt',
@@ -58,7 +58,7 @@ var globbies = [
   {
     name: '*.txt and *.json useGitIgnore: default, usePackageJson: default, configKey: custom-ignore-blah',
     globs: ['*.txt'],
-    opts: Object.assign({}, opts, {configKey: 'custom-ignore-blah'}),
+    opts: Object.assign({}, opts, { configKey: 'custom-ignore-blah' }),
     expectedFiles: ['ignored-by-package-json.txt']
   }
 ]
