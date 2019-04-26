@@ -58,10 +58,11 @@ function parseOpts (opts) {
     useGitIgnore: true,
     usePackageJson: true,
     configKey: 'config',
-    gitIgnoreFile: '.gitignore'
+    gitIgnoreFile: ['.gitignore', '.git/info/exclude']
   }, opts)
 
   if (!opts.cwd) opts.cwd = process.cwd()
+  if (!Array.isArray(opts.gitIgnoreFile)) opts.gitIgnoreFile = [opts.gitIgnoreFile]
 
   opts._ignore = []
   opts._gitignore = ignorePkg()
@@ -95,11 +96,15 @@ function parseOpts (opts) {
 
     if (opts.useGitIgnore) {
       // Use ignore patterns from project root .gitignore
-      var gitignore
+      var gitignores
       try {
-        gitignore = fs.readFileSync(path.join(root, opts.gitIgnoreFile), 'utf8')
+        gitignores = opts.gitIgnoreFile.map(function(f) {
+          return fs.readFileSync(path.join(root, f), 'utf8')
+        })
       } catch (e) {}
-      if (gitignore) opts._gitignore.addPattern(gitignore.split(/\r?\n/))
+      gitignores.forEach(function(gitignore) {
+        opts._gitignore.addPattern(gitignore.split(/\r?\n/))
+      })
     }
   }
 
