@@ -14,7 +14,7 @@ function deglob (files, opts, cb) {
   if (typeof opts === 'function') return deglob(files, null, opts)
   opts = parseOpts(opts)
 
-  if (typeof files === 'string') files = [ files ]
+  if (typeof files === 'string') files = [files]
   if (files.length === 0) return nextTick(cb, null, [])
 
   // traverse filesystem
