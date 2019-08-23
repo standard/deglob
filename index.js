@@ -97,11 +97,14 @@ function parseOpts (opts) {
     if (opts.useGitIgnore) {
       // Use ignore patterns from project root .gitignore
       var gitignores = []
-      try {
-        gitignores = opts.gitIgnoreFile.map(function (f) {
-          return fs.readFileSync(path.join(root, f), 'utf8')
+      gitignores = opts.gitIgnoreFile
+        .map(function (f) {
+          try {
+            return fs.readFileSync(path.join(root, f), 'utf8')
+          } catch (err) {}
         })
-      } catch (e) {}
+        .filter(Boolean)
+
       gitignores.forEach(function (gitignore) {
         opts._gitignore.addPattern(gitignore.split(/\r?\n/))
       })
