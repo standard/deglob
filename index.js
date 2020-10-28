@@ -101,7 +101,9 @@ function parseOpts (opts) {
         .map(function (f) {
           try {
             return fs.readFileSync(path.join(root, f), 'utf8')
-          } catch (err) {}
+          } catch (err) {
+            return null
+          }
         })
         .filter(Boolean)
 
