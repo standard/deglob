@@ -1,14 +1,14 @@
 module.exports = deglob
 
-var findRoot = require('find-root')
-var fs = require('fs')
-var glob = require('glob')
-var ignorePkg = require('ignore')
-var os = require('os')
-var parallel = require('run-parallel')
-var path = require('path')
-var pkgConfig = require('pkg-config')
-var uniq = require('uniq')
+const findRoot = require('find-root')
+const fs = require('fs')
+const glob = require('glob')
+const ignorePkg = require('ignore')
+const os = require('os')
+const parallel = require('run-parallel')
+const path = require('path')
+const pkgConfig = require('pkg-config')
+const uniq = require('uniq')
 
 function deglob (files, opts, cb) {
   if (typeof opts === 'function') return deglob(files, null, opts)
@@ -30,7 +30,7 @@ function deglob (files, opts, cb) {
     if (err) return cb(err)
 
     // flatten nested arrays
-    var files = results.reduce(function (files, result) {
+    let files = results.reduce(function (files, result) {
       result.forEach(function (file) {
         files.push(path.resolve(opts.cwd, file))
       })
@@ -80,14 +80,14 @@ function parseOpts (opts) {
   }
 
   // Find package.json in the project root
-  var root
+  let root
   try {
     root = findRoot(opts.cwd)
   } catch (e) {}
 
   if (root) {
     if (opts.usePackageJson) {
-      var packageOpts = pkgConfig(opts.configKey, { root: false, cwd: opts.cwd })
+      const packageOpts = pkgConfig(opts.configKey, { root: false, cwd: opts.cwd })
       if (packageOpts && packageOpts.ignore) {
         // Use ignore patterns from package.json ("config.ignore" property)
         addIgnorePattern(packageOpts.ignore)
@@ -96,7 +96,7 @@ function parseOpts (opts) {
 
     if (opts.useGitIgnore) {
       // Use ignore patterns from project root .gitignore
-      var gitignores = []
+      let gitignores = []
       gitignores = opts.gitIgnoreFile
         .map(function (f) {
           try {

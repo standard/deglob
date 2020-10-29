@@ -1,9 +1,9 @@
-var path = require('path')
-var test = require('tape')
-var deglob = require('../')
+const path = require('path')
+const test = require('tape')
+const deglob = require('../')
 
-var playground = path.join(__dirname, 'playground')
-var opts = { cwd: playground, gitIgnoreFile: 'custom-gitignore' }
+const playground = path.join(__dirname, 'playground')
+const opts = { cwd: playground, gitIgnoreFile: 'custom-gitignore' }
 
 const globbies = [
   {
@@ -52,7 +52,7 @@ globbies.forEach(function (obj) {
 
     function checkEm (err, files) {
       if (err) throw err
-      var testName = obj.name + ' -- matches ' + obj.expectedFiles.length + ' files'
+      const testName = obj.name + ' -- matches ' + obj.expectedFiles.length + ' files'
       t.equals(files.length, obj.expectedFiles.length, testName)
       obj.expectedFiles.forEach(function (expectedFile) {
         t.ok(files.indexOf(path.join(playground, expectedFile)) > -1, 'File in Result: ' + expectedFile)
