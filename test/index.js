@@ -5,24 +5,7 @@ var deglob = require('../')
 var playground = path.join(__dirname, 'playground')
 var opts = { cwd: playground, gitIgnoreFile: 'custom-gitignore' }
 
-test('all of the things', function (t) {
-  globbies.forEach(function (obj) {
-    deglob(obj.globs, obj.opts, checkEm)
-
-    function checkEm (err, files) {
-      if (err) throw err
-      var testName = obj.name + ' -- matches ' + obj.expectedFiles.length + ' files'
-      t.equals(files.length, obj.expectedFiles.length, testName)
-      obj.expectedFiles.forEach(function (expectedFile) {
-        t.ok(files.indexOf(path.join(playground, expectedFile)) > -1, 'File in Result: ' + expectedFile)
-      })
-    }
-  })
-
-  t.end()
-})
-
-var globbies = [
+const globbies = [
   {
     name: '*.txt useGitIgnore: default, usePackageJson: default',
     globs: '*.txt',
@@ -62,3 +45,19 @@ var globbies = [
     expectedFiles: ['ignored-by-package-json.txt']
   }
 ]
+
+globbies.forEach(function (obj) {
+  test('Testing ' + obj.name, function (t) {
+    deglob(obj.globs, obj.opts, checkEm)
+
+    function checkEm (err, files) {
+      if (err) throw err
+      var testName = obj.name + ' -- matches ' + obj.expectedFiles.length + ' files'
+      t.equals(files.length, obj.expectedFiles.length, testName)
+      obj.expectedFiles.forEach(function (expectedFile) {
+        t.ok(files.indexOf(path.join(playground, expectedFile)) > -1, 'File in Result: ' + expectedFile)
+      })
+      t.end()
+    }
+  })
+})
